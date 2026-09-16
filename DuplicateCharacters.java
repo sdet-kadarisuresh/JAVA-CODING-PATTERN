@@ -8,15 +8,21 @@ class DuplicateCharacters {
 
         int[] count = new int[256];
 
-        // Count each character
+        // Count frequency
         for (int i = 0; i < str.length(); i++) {
             count[str.charAt(i)]++;
         }
 
-        // Print duplicate characters
-        for (int i = 0; i < 256; i++) {
-            if (count[i] > 1) {
-                System.out.println((char) i + " = " + count[i]);
+        // Find duplicate characters
+        for (int i = 0; i < str.length(); i++) {
+
+            char ch = str.charAt(i);
+
+            if (count[ch] > 1) {
+                System.out.println(ch + " = " + count[ch]);
+
+                // Avoid printing the same duplicate again
+                count[ch] = 0;
             }
         }
     }
